@@ -15,7 +15,7 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'FRANK')
+    ], 'FRANK');
 
     assert.isFalse(result);
   });
@@ -31,8 +31,39 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'SEINFELD')
+    ], 'SEINFELD');
+    assert.isTrue(result);
+  });
 
+  it("should return true if the word is present", function() {
+    const result = wordSearch([
+      ['S'],
+      ['E'],
+      ['I'],
+      ['N'],
+      ['F'],
+      ['E'],
+      ['L'],
+      ['D'],
+      ['E'],
+    ], 'SEINFELD');
+    assert.isTrue(result);
+  });
+
+  it('should return true if word is present (backwards)', function() {
+    const result = wordSearch([
+      ['D', 'L', 'E', 'F', 'N', 'I', 'E', 'S'],
+    ], 'SEINFELD');
+    assert.isTrue(result);
+  });
+
+  it("should return true if the word is present", function() {
+    const result = wordSearch([
+      ['T'],
+      ['A'],
+      ['C'],
+    ], 'CAT');
     assert.isTrue(result);
   });
 });
+
